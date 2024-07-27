@@ -13,15 +13,6 @@ public class Dev {
         bootcamp.getDevsInscritos().add(this);
     }
 
-    public void progredir() {
-        Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
-        if (conteudo.isPresent()) {
-            this.conteudosConcluidos.add(conteudo.get());
-            this.conteudosInscritos.remove(conteudo.get());
-        } else {
-            System.out.println("Você ainda não se matriculou em nenhum conteúdo!");
-        }
-    }
 
     public double calcularTotalXp() {
         return this.conteudosConcluidos.stream().mapToDouble(Conteudo::calcularXp).sum();
